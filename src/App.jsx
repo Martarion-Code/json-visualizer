@@ -8,6 +8,17 @@ import {
   useReactFlow,
   Panel,
 } from "reactflow";
+import JsonVisNode from "./Custom Nodes/jsonVisNode";
+
+// we define the nodeTypes outside of the component to prevent re-renderings
+// you could also use useMemo inside the component
+const nodeTypes = { jsonVis: JsonVisNode }; 
+const edgeTypes = {
+  jsonVis: JsonVisEdge,
+};
+
+const defaultEdgeOpt = {type: 'jsonVis'}
+
 
 import { shallow } from "zustand/shallow";
 
@@ -19,6 +30,7 @@ import convertJsonToTree from "./utils/convertJsonToTree";
 import convertTreeToNodes from "./utils/convertTreeToNodes";
 
 import "reactflow/dist/style.css";
+import JsonVisEdge from "./Custom Edges/JsonVisEdge";
 
 /**
  * Select which variable or func that will get used from store 
@@ -42,8 +54,8 @@ const elk = new ELK();
 //Elk options for layouting the tree
 const elkOptions = {
   "elk.algorithm": "layered",
-  "elk.layered.spacing.nodeNodeBetweenLayers": "100",
-  "elk.spacing.nodeNode": "80",
+  "elk.layered.spacing.nodeNodeBetweenLayers": "200",
+  "elk.spacing.nodeNode": "150",
   "elk.edgeRouting": "SPLINES",
 };
 
@@ -56,6 +68,7 @@ const elkOptions = {
  */
 const getLayoutedElements = (nodes, edges, options = {}) => {
   const isHorizontal = options?.["elk.direction"] === "RIGHT";
+  console.log(isHorizontal)
   const graph = {
     id: "root",
     layoutOptions: options,
@@ -64,13 +77,14 @@ const getLayoutedElements = (nodes, edges, options = {}) => {
       ...node,
       targetPosition: isHorizontal ? "left" : "top",
       sourcePosition: isHorizontal ? "right" : "bottom",
-
       //Hardcode a width and height for node so that elk can use it when layouting.
       width: 150,
       height: 50,
     })),
     edges: edges,
   };
+
+  // console.log(graph);
 
   //Return promises
   return elk
@@ -93,8 +107,8 @@ function App() {
     edges,
     setNodes,
     setEdges,
-    onNodesChange,
-    onEdgesChange,
+    // onNodesChange,
+    // onEdgesChange,
     needToRenderJson,
   } = useStore(selector, shallow);
 
@@ -127,6 +141,8 @@ function App() {
     [nodes, edges]   //So that the useCallback will rememoize the nodes and edges variable if it values changed.
   );
 
+  console.log(nodes);
+
   //It will render before "layout" phase happening when rendering page. So that the page will outputing layouted nodes and edges
   useLayoutEffect(() => {
     const nodeTree = convertJsonToTree(needToRenderJson); //to convert json to tree
@@ -151,13 +167,16 @@ function App() {
           <ReactFlow
             nodes={nodes}
             edges={edges}
-            onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
+            // onNodesChange={onNodesChange}
+            // onEdgesChange={onEdgesChange}
+            nodeTypes={nodeTypes}
+            edgeTypes={edgeTypes}
+            defaultEdgeOptions={defaultEdgeOpt}
           >
-            <Background gap={20} variant={BackgroundVariant.Lines}></Background>
+            <Background gap={30} color={'#373737'} variant={BackgroundVariant.Lines}></Background>
             <Controls showInteractive={false}></Controls>
-            <Panel position="top-right">
-              <button onClick={() => onLayout({ direction: "DOWN" })}>
+            <Panel position="top-right" className="react-flow__panel-1">
+              <button onClick={() => onLayout({ direction: "DOWN" })} className="panel__btn">
                 vertical layout
               </button>
 

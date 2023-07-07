@@ -1,95 +1,128 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+
+:root {
+  --bg-sidebar-clr: #313131;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
-
-html{
+html {
   font-size: 16px;
 }
 
-.body{
+.body {
   margin: 0;
   padding: 0;
 }
 
-.app-cont{
+.app-cont {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: row-reverse;
 }
 
-.sidebar{
+.sidebar {
   width: 20vw;
   min-height: 100vh;
-  background-color: #1a1a1a;
+  background-color: var(--bg-sidebar-clr);
   color: #fff;
   display: flex;
   flex-direction: column;
 }
 
-.sidebar__text-cont{
+.sidebar__text-cont {
   flex-grow: 1;
-  background: #313131;
+  background: var(--bg-sidebar-clr);
   outline: none;
   border: none;
   flex-shrink: 1;
   color: #fff;
-  font-size: .8rem;
-  padding: .7rem;
+  font-size: 0.8rem;
+  padding: 0.7rem;
 }
-.sidebar__title-cont{
+.sidebar__title-cont {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
-
 }
-.sidebar__title-cont h1{
+.sidebar__title-cont h1 {
   font-size: 1.3rem;
 }
 
-
-
-.sidebar__title-cont button{
+.sidebar__title-cont button {
   margin: 1rem 0;
   font-size: 0.9rem;
+}
+
+.react-flow {
+  background-color: #202021;
+}
+
+.react-flow__background {
+  color: #2f2f2f;
+}
+.react-flow__node {
+  background: transparent;
+}
+
+.react-flow__node-jsonVis {
+
+  background-color: transparent;
+  position: relative;
+  width: 200px;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.react-flow__handle {
+
+  opacity: 0;
+}
+
+.react-flow__handle-top {
+  top: 5% !important;
+}
+
+.react-flow__handle-bottom {
+  bottom: 5% !important;
+}
+
+.react-flow__handle-right {
+  right: 2% !important;
+}
+
+.react-flow__handle-left {
+  left: 2% !important;
+}
+
+.react-flow__panel-1 {
+  display: flex;
+  gap: 2vw;
+}
+
+.react-flow__node-jsonVis ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.jsonVisNode__label{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;;
+  display: flex;
+  flex-wrap: wrap;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: var(--bg-sidebar-clr);
+}
+
+.jsonVisNode__label__key{
+  color:#c39c6b;
+  font-weight: 600;
 }

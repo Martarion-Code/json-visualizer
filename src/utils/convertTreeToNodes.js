@@ -6,8 +6,9 @@ let edges = [];
 function addRootNode(node) {
   const newNode = {
     id: node.id,
-    data: { label: JSON.stringify(node.value) },
+    data: { label: node.value },
     position: { x: 0, y: 0 },
+    type: 'jsonVis',
   };
 
   nodes = [...nodes, newNode];
@@ -20,8 +21,9 @@ function addChildNode(node, parentNode) {
       label:
         typeof node.value === "string" || typeof node.value === "number"
           ? node.value
-          : JSON.stringify(node.value),
+          : node.value,
     },
+    type: 'jsonVis',
     position: { x: 0, y: 0 },
     parent: parentNode.id,
   };
