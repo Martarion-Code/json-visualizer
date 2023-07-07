@@ -1,0 +1,95 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+html{
+  font-size: 16px;
+}
+
+.body{
+  margin: 0;
+  padding: 0;
+}
+
+.app-cont{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.sidebar{
+  width: 20vw;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__text-cont{
+  flex-grow: 1;
+  background: #313131;
+  outline: none;
+  border: none;
+  flex-shrink: 1;
+  color: #fff;
+  font-size: .8rem;
+  padding: .7rem;
+}
+.sidebar__title-cont{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+
+}
+.sidebar__title-cont h1{
+  font-size: 1.3rem;
+}
+
+
+
+.sidebar__title-cont button{
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
