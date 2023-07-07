@@ -4,20 +4,11 @@ import {Handle} from 'reactflow';
 
 // eslint-disable-next-line react/prop-types
 function JsonVisNode({data, targetPosition, sourcePosition}){
-
-    // console.log
-    // console.log(data.label);
     let str;
-    if(typeof data.label === 'object'){
-        str = Object.entries(data.label);
-    }else{
+    if(typeof data.label !== 'object'){
+      
         str = data.label;
     }
-
-    // console.log(str);
-
-    // const strArr = (typeof data.label === 'object' ) ? data.label?.split(',') 
-    // console.log(strArr)
     return (
         <>
             <Handle type="target" position={targetPosition} ></Handle>

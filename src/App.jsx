@@ -8,7 +8,7 @@ import {
   useReactFlow,
   Panel,
 } from "reactflow";
-import JsonVisNode from "./Custom Nodes/jsonVisNode";
+import JsonVisNode from "./Custom-Nodes/jsonVisNode";
 
 // we define the nodeTypes outside of the component to prevent re-renderings
 // you could also use useMemo inside the component
