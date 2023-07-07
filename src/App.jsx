@@ -8,7 +8,8 @@ import {
   useReactFlow,
   Panel,
 } from "reactflow";
-import JsonVisNode from "./Custom-Nodes/jsonVisNode";
+import JsonVisNode from "./Custom-Nodes/JsonVisNode";
+import JsonVisEdge from "./Custom Edges/JsonVisEdge";
 
 // we define the nodeTypes outside of the component to prevent re-renderings
 // you could also use useMemo inside the component
@@ -30,7 +31,7 @@ import convertJsonToTree from "./utils/convertJsonToTree";
 import convertTreeToNodes from "./utils/convertTreeToNodes";
 
 import "reactflow/dist/style.css";
-import JsonVisEdge from "./Custom Edges/JsonVisEdge";
+
 
 /**
  * Select which variable or func that will get used from store 
