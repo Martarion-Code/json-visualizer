@@ -1,2 +1,2 @@
 # json-visualizer
-This is json visualizer that I created using React Flow
+This is json visualizer that I created using React Flow. Mobile design or responsiveness still in development....
